@@ -1,5 +1,6 @@
 package ar.edu.unahur.obj2;
 
+import ar.edu.unahur.obj2.proveedores.Proveedor;
 import org.joda.time.DateTime;
 
 import java.util.Collections;
@@ -10,12 +11,20 @@ public class Ota {
 
     private DistribuidorDeTrafico distribuidorDeTrafico;
 
-    public Ota(DistribuidorDeTrafico distribuidorDeTrafico) {
-        this.distribuidorDeTrafico = distribuidorDeTrafico;
-    }
+    public Ota(DistribuidorDeTrafico distribuidorDeTrafico){this.distribuidorDeTrafico = distribuidorDeTrafico;}
 
     public List<Vuelo> buscarVuelos(DateTime fecha, String origen, String destino) {
         String codigoProveedor = distribuidorDeTrafico.proveedor();
+        List<Vuelo>resultado;
+
+        Proveedor proveedor=new Proveedor() {
+            @Override
+            public List<Vuelo> buscarVuelo(DateTime fecha, String origen, String destino) {
+                return null;
+            }
+        };
+
+
         // TODO Implementar
         return Collections.emptyList();
     }
